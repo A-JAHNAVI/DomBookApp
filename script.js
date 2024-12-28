@@ -1,7 +1,4 @@
-const baseUrl = "https://global-nasal-environment.glitch.me/books";
-
-
-
+const baseUrl = "https://global-nasal-environment.glitch.me";
 
 // Login validation
 if (document.getElementById("loginForm")) {
@@ -36,7 +33,6 @@ if (document.getElementById("addBookForm")) {
     const title = document.getElementById("title").value;
     const author = document.getElementById("author").value;
     const category = document.getElementById("category").value;
-    
 
     fetch(baseUrl, {
       method: "POST",
@@ -51,8 +47,8 @@ if (document.getElementById("addBookForm")) {
         imageUrl: "https://m.media-amazon.com/images/I/71ZB18P3inL._SY522_.jpg",
       }),
     })
-     .then(()=>alert("book added successfully"))
-     .then(()=>fetchBooks)
+      .then(() => alert("Book Added Successfully"))
+      .then(() => fetchBooks());
   });
 
   function fetchBooks() {
@@ -98,6 +94,40 @@ if (document.getElementById("addBookForm")) {
   };
 }
 
+// User functionality
+if (document.getElementById("showAvailable")) {
+  document.getElementById("showAvailable").addEventListener("click", () => {
+    fetch(`${baseUrl}?isAvailable=true`)
+      .then((res) => res.json())
+      .then((books) => renderBooks(books));
+  });
+
+  function renderBooks(books) {
+    const grid = document.getElementById("bookGrid");
+    grid.innerHTML = books
+      .map(
+        (book) => `
+        <div class="book-card">
+          <img src="${book.imageUrl}" alt="Book Image" style="width:100%">
+          <h3>${book.title}</h3>
+          <p>Author: ${book.author}</p>
+          <p>Category: ${book.category}</p>
+          <button onclick="borrowBook(${book.id})">Borrow</button>
+        </div>
+      `
+      )
+      .join("");
+  }
+
+  window.borrowBook = (id) => {
+    const borrowedDays = prompt("Enter the number of days to borrow the book:");
+    fetch(`${baseUrl}/${id}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ isAvailable: false, borrowedDays }),
+    }).then(() => alert("Book Borrowed Successfully"));
+  };
+}
 
 
 
