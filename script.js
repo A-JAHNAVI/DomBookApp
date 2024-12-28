@@ -36,6 +36,7 @@ if (document.getElementById("addBookForm")) {
     const title = document.getElementById("title").value;
     const author = document.getElementById("author").value;
     const category = document.getElementById("category").value;
+    
 
     fetch(baseUrl, {
       method: "POST",
@@ -50,8 +51,8 @@ if (document.getElementById("addBookForm")) {
         imageUrl: "https://m.media-amazon.com/images/I/71ZB18P3inL._SY522_.jpg",
       }),
     })
-      .then(() => alert("Book Added Successfully"))
-      .then(() => fetchBooks());
+     .then(()=>alert("book added successfully"))
+     .then(()=>fetchBooks)
   });
 
   function fetchBooks() {
