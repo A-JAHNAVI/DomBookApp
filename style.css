@@ -1,55 +1,72 @@
 body {
     font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
   }
   
   nav {
     background-color: #333;
+    color: white;
     padding: 10px;
     text-align: center;
   }
   
   nav a {
     color: white;
-    margin: 0 15px;
+    margin: 0 10px;
     text-decoration: none;
   }
   
-  form {
-    margin: 20px auto;
-    max-width: 400px;
-    text-align: left;
+  nav a:hover {
+    text-decoration: underline;
   }
   
-  form label {
-    display: block;
-    margin: 10px 0;
+  h1 {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .buttons {
+    text-align: center;
+    margin: 20px;
+  }
+  
+  button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
   }
   
   #bookGrid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 15px;
-    margin: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
   }
   
   .book-card {
-    border: 1px solid #ddd;
-    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
     text-align: center;
   }
   
-  button {
-    padding: 10px;
+  .book-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+  }
+  
+  .book-card button {
+    margin-top: 10px;
+    padding: 5px 10px;
     background-color: #007BFF;
     color: white;
     border: none;
+    border-radius: 3px;
     cursor: pointer;
   }
   
-  button:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
+  .book-card button:hover {
+    background-color: #0056b3;
   }
   
