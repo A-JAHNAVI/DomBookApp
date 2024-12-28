@@ -99,15 +99,7 @@ if (document.getElementById("addBookForm")) {
 
 
 
-// Ensure the user is logged in
-document.addEventListener("DOMContentLoaded", () => {
-  const loginData = JSON.parse(localStorage.getItem("loginData"));
 
-  if (!loginData || loginData.email !== "user@empher.com") {
-    alert("User Not Logged In");
-    window.location.href = "index.html"; // Redirect to home page
-  }
-});
 
 // Function to render books
 function renderBooks(books) {
