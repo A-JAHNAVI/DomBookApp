@@ -7,18 +7,18 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <nav style="background-color: olive; ">
-    
-        <a href="index.html" style="text-decoration: none; color:black ;">Home</a>
-        <a href="admin.html" style="text-decoration: none; color:black">Admin</a>
-        <a href="books.html" style="text-decoration: none ; color:black">Books</a>
-        
-        
-      </nav>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="admin.html">Admin</a>
+    <a href="books.html">Books</a>
+  </nav>
 
   <h1>Books</h1>
-  <button id="showAvailable">Show Available Books</button>
-  <button id="showBorrowed">Show Borrowed Books</button>
+  <div class="buttons">
+    <button id="showAvailable">Show Available Books</button>
+    <button id="showBorrowed">Show Borrowed Books</button>
+  </div>
+
   <div id="bookGrid"></div>
 
   <script src="script.js"></script>
